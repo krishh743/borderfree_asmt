@@ -7,12 +7,12 @@ const[state,setState]=useState([])
 useEffect(()=>{
 
 axios
-.get("https://jsonplaceholder.typicode.com/photos")
+.get("https://api.unsplash.com/search/photos?client_id=Mhewmhf7FO5jKk7CZ3zIOPJILCLHHh_NdtwnVNpwmOQ")
 .then((data)=>{
 setState(data.data.results)
 });
 
-});
+},[count]);
 
 return state;
 }
@@ -21,12 +21,12 @@ const[state,setState]=useState([])
 useEffect(()=>{
 
 axios
-.get("https://jsonplaceholder.typicode.com/photos")
+.get("https://api.unsplash.com/search/photos?query="+query+"&client_id=Mhewmhf7FO5jKk7CZ3zIOPJILCLHHh_NdtwnVNpwmOQ")
 .then((data)=>{
 setState(data.data.results)
 });
 
-});
+},[query]);
 
 return state;
 } 
