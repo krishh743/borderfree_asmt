@@ -3,19 +3,19 @@ import './App.css';
 import {useState,useEffect} from 'react';
 import {LoadImages,SearchImages} from './componenets/api';
 import './App.css';
-import image from './componenets/image';
+import Image from './componenets/image'
 
 function App() {
 const[query,setQuery]=useState()
-const[serachQ,setSearch]=useState()
+const[random,setRandom]=useState()
 const data = LoadImages();
 console.log(query)
 
 const search=()=>{
-setSearch(query);
+setRandom(query);
 
 }
-const Searchdata = SearchImages(serachQ);
+const Searchdata = SearchImages(random);
 console.log(Searchdata);
 
   return (
@@ -25,10 +25,10 @@ console.log(Searchdata);
 <button onClick={search}>Search</button>
 </div>
 <div>
-{serachQ ? Searchdata.map((img,key)=>(
-<image src={img.url.thumb} key={key}/>
+{random ? Searchdata.map((img,key)=>(
+<Image src={img.urls.thumb} key={key}/>
 )) : data.map((img,key)=>(
-<image src={img.url.thumb} key={key}/>
+<Image src={img.urls.thumb} key={key}/>
 ))}      
     </div>
 </div>
